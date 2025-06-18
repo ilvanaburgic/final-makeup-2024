@@ -12,7 +12,14 @@ class ExamDao {
           /** TODO
            * List parameters such as servername, username, password, schema. Make sure to use appropriate port
            */
+          $servername = "127.0.0.1";
+            $username = "root";
+            $password = "12nana123";
+            $dbname = "classicmodels";
+            $port = 3306;
 
+            $this->conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username, $password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           /** TODO
            * Create new connection
            */
