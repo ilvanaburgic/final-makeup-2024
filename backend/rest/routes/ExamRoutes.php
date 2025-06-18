@@ -6,11 +6,7 @@ Flight::route('GET /connection-check', function(){
     * Goal is to check whether connection is successfully established or not
     * This endpoint does not have to return output in JSON format
     */
-    try{
-        $dao = new ExamDao();
-    }catch(Exception $e){
-        $e->getMessage();
-    }
+
 });
 
 Flight::route('GET /employees/performance', function(){
@@ -25,12 +21,6 @@ Flight::route('GET /employees/performance', function(){
     * This endpoint should return output in JSON format
     * 10 points
     */
-
-    $service = new ExamService();
-    $data = $service->employees_performance_report();
-    Flight::json($data);
-
-
 });
 
 Flight::route('DELETE /employee/delete/@employee_id', function($employee_id){
@@ -40,12 +30,6 @@ Flight::route('DELETE /employee/delete/@employee_id', function($employee_id){
     * `message` property that indicates that process went successfully.
     * 5 points
     */
-
-    $service = new ExamService();
-    $data = $service->delete_employee($employee_id);
-    Flight::json($data);
-
-    
 });
 
 Flight::route('PUT /employee/edit/@employee_id', function($employee_id) {
@@ -75,10 +59,6 @@ Flight::route('GET /orders/report', function(){
     * This endpoint should return output in JSON format
     * 10 points
     */
-
-    $service = new ExamService();
-    $data = $service->get_orders_report();
-    Flight::json($data);
 });
 
 Flight::route('GET /order/details/@order_id', function($order_id){
@@ -92,10 +72,6 @@ Flight::route('GET /order/details/@order_id', function($order_id){
     * This endpoint should return output in JSON format
     * 10 points
     */
-
-    $service = new ExamService();
-    $data = $service->get_order_details($order_id);
-    Flight::json($data);
 });
 
 ?>

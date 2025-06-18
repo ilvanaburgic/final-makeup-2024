@@ -12,14 +12,14 @@ class ExamService {
     * Implement service method used to get employees performance report
     */
     public function employees_performance_report(){
-        return $this->dao->employees_performance_report();
+
     }
 
     /** TODO
     * Implement service method used to delete employee by id
     */
     public function delete_employee($employee_id){
-        return $this->dao->delete_employee($employee_id);
+        
     }
 
     /** TODO
@@ -33,13 +33,13 @@ class ExamService {
     * Implement service method used to get orders report
     */
     public function get_orders_report(){
-        return $this->dao->get_orders_report();
+        
     }
 
     /** TODO
     * Implement service method used to get all products in a single order
     */
     public function get_order_details($order_id){
-        return $this->dao->get_order_details($order_id);
+        
     }
 }
