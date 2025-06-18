@@ -35,7 +35,18 @@ class ExamDao {
      * Implement DAO method used to get employees performance report
      */
     public function employees_performance_report(){
-
+      $stmt = $this->conn->prepare("
+            SELECT 
+                e.employeeNumber AS id,
+                CONCAT(e.firstName, ' ', e.lastName) AS full_name,
+                SUM(p.amount) AS total
+            FROM employees e
+            JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber
+            JOIN payments p ON c.customerNumber = p.customerNumber
+            GROUP BY e.employeeNumber
+        ");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     /** TODO

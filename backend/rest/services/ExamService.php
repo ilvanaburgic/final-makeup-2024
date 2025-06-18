@@ -12,7 +12,7 @@ class ExamService {
     * Implement service method used to get employees performance report
     */
     public function employees_performance_report(){
-
+        return $this->dao->employees_performance_report();
     }
 
     /** TODO

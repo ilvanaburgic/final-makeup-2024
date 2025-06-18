@@ -21,6 +21,7 @@ Flight::route('GET /employees/performance', function(){
     * This endpoint should return output in JSON format
     * 10 points
     */
+    Flight::json(Flight::examService()->employees_performance_report());
 });
 
 Flight::route('DELETE /employee/delete/@employee_id', function($employee_id){
