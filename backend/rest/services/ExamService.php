@@ -26,7 +26,7 @@ class ExamService {
     * Implement service method used to edit employee data
     */
     public function edit_employee($employee_id, $data){
-
+        return $this->dao->edit_employee($employee_id, $data);
     }
 
     /** TODO

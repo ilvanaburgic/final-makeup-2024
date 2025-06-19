@@ -65,7 +65,19 @@ class ExamDao {
      * Implement DAO method used to edit employee data
      */
     public function edit_employee($employee_id, $data){
+      $stmt = $this->conn->prepare("
+        UPDATE employees 
+        SET firstName = :first_name, lastName = :last_name, email = :email 
+        WHERE employeeNumber = :employee_id
+      ");
+      $stmt->execute([
+          'first_name' => $data['first_name'],
+          'last_name' => $data['last_name'],
+          'email' => $data['email'],
+          'employee_id' => $employee_id
+      ]);
 
+    return ['message' => 'Employee updated successfully'];
     }
 
     /** TODO

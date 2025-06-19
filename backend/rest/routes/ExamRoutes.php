@@ -45,6 +45,8 @@ Flight::route('PUT /employee/edit/@employee_id', function($employee_id) {
     * This endpoint should return the edited customer in JSON format
     * 10 points
     */
+    $data = Flight::request()->data->getData();
+    Flight::json(Flight::examService()->edit_employee($employee_id, $data));
 });
 
 Flight::route('GET /orders/report', function(){
