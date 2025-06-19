@@ -33,13 +33,13 @@ class ExamService {
     * Implement service method used to get orders report
     */
     public function get_orders_report(){
-        
+        return $this->dao->get_orders_report();
     }
 
     /** TODO
     * Implement service method used to get all products in a single order
     */
     public function get_order_details($order_id){
-        
+        return $this->dao->get_order_details($order_id);
     }
 }

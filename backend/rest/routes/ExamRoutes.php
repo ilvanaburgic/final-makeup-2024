@@ -63,6 +63,7 @@ Flight::route('GET /orders/report', function(){
     * This endpoint should return output in JSON format
     * 10 points
     */
+    Flight::json(Flight::examService()->get_orders_report());
 });
 
 Flight::route('GET /order/details/@order_id', function($order_id){
@@ -76,6 +77,7 @@ Flight::route('GET /order/details/@order_id', function($order_id){
     * This endpoint should return output in JSON format
     * 10 points
     */
+    Flight::json(Flight::examService()->get_order_details($order_id));
 });
 
 ?>

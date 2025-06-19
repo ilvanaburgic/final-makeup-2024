@@ -84,14 +84,40 @@ class ExamDao {
      * Implement DAO method used to get orders report
      */
     public function get_orders_report(){
+      $stmt = $this->conn->prepare("
+          SELECT 
+              o.orderNumber AS order_number,
+              SUM(od.quantityOrdered * od.priceEach) AS total_amount
+          FROM orders o
+          JOIN orderdetails od ON o.orderNumber = od.orderNumber
+          GROUP BY o.orderNumber
+      ");
+      $stmt->execute();
+      $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+      foreach ($orders as &$order) {
+          $id = $order['order_number'];
+          $order['details'] = "<button class='btn btn-sm btn-info' onclick='showDetails($id)'>Details</button>";
+      }
+
+      return $orders;
     }
 
     /** TODO
      * Implement DAO method used to get all products in a single order
      */
     public function get_order_details($order_id){
-
+      $stmt = $this->conn->prepare("
+            SELECT 
+                p.productName AS product_name,
+                od.quantityOrdered AS quantity,
+                od.priceEach AS price_each
+            FROM orderdetails od
+            JOIN products p ON od.productCode = p.productCode
+            WHERE od.orderNumber = ?
+        ");
+        $stmt->execute([$order_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 ?>
