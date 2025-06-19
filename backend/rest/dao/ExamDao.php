@@ -53,7 +53,12 @@ class ExamDao {
      * Implement DAO method used to delete employee by id
      */
     public function delete_employee($employee_id) {
+      $stmt1 = $this->conn->prepare("UPDATE customers SET salesRepEmployeeNumber = NULL WHERE salesRepEmployeeNumber = ?");
+      $stmt1->execute([$employee_id]);
 
+      $stmt2 = $this->conn->prepare("DELETE FROM employees WHERE employeeNumber = ?");
+      $stmt2->execute([$employee_id]);
+      return ['message' => 'Employee deleted successfully'];
     }
 
     /** TODO

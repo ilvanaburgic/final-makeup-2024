@@ -31,6 +31,7 @@ Flight::route('DELETE /employee/delete/@employee_id', function($employee_id){
     * `message` property that indicates that process went successfully.
     * 5 points
     */
+    Flight::json(Flight::examService()->delete_employee($employee_id));
 });
 
 Flight::route('PUT /employee/edit/@employee_id', function($employee_id) {

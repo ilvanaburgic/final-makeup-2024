@@ -19,7 +19,7 @@ class ExamService {
     * Implement service method used to delete employee by id
     */
     public function delete_employee($employee_id){
-        
+        return $this->dao->delete_employee($employee_id);
     }
 
     /** TODO
