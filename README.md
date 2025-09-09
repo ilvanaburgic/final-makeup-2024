@@ -12,7 +12,7 @@
            */
           $servername = "127.0.0.1";
             $username = "root";
-            $password = "12nana123";
+            $password = "stavi_koji_je_dat";
             $dbname = "classicmodels";
             $port = 3306;
 
